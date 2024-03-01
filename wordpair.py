@@ -18,16 +18,14 @@ def find_two_words():
 def other_possible_matches(word1, word2):
     with open('/usr/share/dict/words') as wordlist:
         words = wordlist.read().split()
-        start_letters_word1 = word1[:3]
+        start_letters_word1 = word1[:len(word1)-3]
         end_letters_word2 = word2[3:]
         
         for w in words:
-            if w[:3] == start_letters_word1 and len(w) == len(word1) and w != word1:
+            if len(w) == len(word1) and w[:len(w)-3] == start_letters_word1 and w != word1:
                 for w2 in words:
                     if w2[3:] == end_letters_word2 and len(w2) == len(word2) and w2 != word2:
                         return True
-    
-        
 
 def main():
     word1, word2 = find_two_words()
