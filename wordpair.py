@@ -1,5 +1,3 @@
-# run this in ubuntu
-
 import random
 import nltk
 
